@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1c1d21;
+  height: 4rem;
+}
+.header__nav__ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100vw;
+}
+.header__nav__ul .li__div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.header__nav__ul .li__div__p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: white;
+  font-size: 0.7rem;
+}/*# sourceMappingURL=Header.css.map */

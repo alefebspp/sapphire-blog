@@ -1,0 +1,44 @@
+@use './styles.scss';
+
+.posts{
+
+&__h1{
+  text-align: center;
+  font-size: styles.$default-h1-size;
+  @include styles.title-400();
+}
+
+&__div{
+@include styles.center-elements();
+flex-direction: column;
+padding: styles.$default-padding;
+margin: styles.$default-padding;
+border: 2px solid styles.$default-color;
+border-radius: 1rem;
+gap: 1rem;
+
+&2{
+@include styles.center-elements();
+flex-direction: column;
+
+
+  &__p{
+    font-size: styles.$post-subtitle;
+    text-align: center;
+    @include styles.title-700();
+  }
+  &__h1{
+  @include styles.title-700();
+    font-size: styles.$post-title;
+    text-align: center;
+    color: styles.$default-color;
+  }
+}
+
+&3{
+  @include styles.center-elements();
+  gap: 1rem;
+}
+
+}
+}

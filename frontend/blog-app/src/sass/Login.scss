@@ -1,0 +1,8 @@
+@use './styles';
+
+.login{
+  &__div{
+    @include styles.center-elements();
+    @include styles.main-div();
+  }
+}

@@ -1,0 +1,16 @@
+@use './styles.scss';
+
+.profileInfo{
+  @include styles.center-elements();
+
+  &__div{
+    @include styles.center-elements();
+    flex-direction: column;
+    padding: styles.$default-padding;
+    gap: 2rem;
+    &__h1{
+      font-size: styles.$default-h1-size;
+      @include styles.title-400();
+    }
+  }
+}

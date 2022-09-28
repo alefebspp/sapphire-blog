@@ -1,0 +1,63 @@
+@use './styles.scss';
+
+.logo{
+  @include styles.center-elements();
+  flex-direction: column;
+  gap: 2rem;
+
+&__div{
+ @include styles.center-elements();
+ flex-direction: column;
+  &__h1{
+    @include styles.title-400();
+    font-size: styles.$default-h1-size;
+  }
+
+  &__h2{
+    @include styles.title-400();
+    font-size: styles.$default-h1-size;
+  }
+}
+}
+
+.div_form{
+  
+  padding: 3rem;
+  border: 2px solid styles.$default-color;
+  border-radius: 1rem;
+}
+
+.form{
+  @include styles.center-elements();
+  flex-direction: column;
+  gap: 1rem;
+
+&__div{
+  @include styles.center-elements();
+  flex-direction: column;
+}
+
+  &__button{
+    @include styles.button();
+  }
+
+  &__label{
+    @include styles.title-400();
+    color: styles.$default-color;
+  }
+
+  &__div2{
+    @include styles.center-elements();
+    padding: 0 1rem;
+    gap: 1rem;
+    &__h2{
+      @include styles.title-400();
+      font-size: styles.$default-text-size;
+    }
+    &__link{
+      @include styles.title-700();
+      color: styles.$default-color;
+    }
+  }
+}
+

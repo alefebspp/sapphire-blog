@@ -1,0 +1,17 @@
+@use './styles.scss';
+
+.createPost{
+  @include styles.center-elements();
+  flex-direction: column;
+  gap: 1rem;
+  padding: styles.$default-padding;
+
+  &__div{
+    @include styles.center-elements();
+    flex-direction: column;
+  }
+
+  &__h1{
+    font-size: styles.$default-h1-size;
+  }
+}

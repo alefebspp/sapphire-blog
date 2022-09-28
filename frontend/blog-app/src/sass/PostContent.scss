@@ -1,0 +1,32 @@
+@use './styles.scss';
+
+.postContent__div{
+ @include styles.center-elements();
+ flex-direction: column;
+ gap: 2rem;
+ padding: styles.$default-padding;
+
+&__p{
+  @include styles.title-400();
+  text-align: justify
+}
+
+  &2{
+    @include styles.center-elements();
+    gap: 2rem;
+    
+&__p{
+  @include styles.title-700();
+  font-size: 0.7rem;
+  color: darkgray
+  
+}
+
+&__h1{
+  @include styles.title-700();
+}
+
+  }
+ 
+
+}

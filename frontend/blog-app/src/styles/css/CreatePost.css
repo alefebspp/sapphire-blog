@@ -1,0 +1,17 @@
+.createPost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+.createPost__div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.createPost__h1 {
+  font-size: 2rem;
+}/*# sourceMappingURL=CreatePost.css.map */

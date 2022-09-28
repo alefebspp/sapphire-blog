@@ -1,0 +1,32 @@
+@use './styles.scss';
+
+.header{
+ @include styles.center-elements();
+  background-color: #1c1d21;
+  height: 4rem;
+ 
+&__nav{
+
+  &__ul{
+    list-style: none;
+    @include styles.center-elements();
+    justify-content: space-between;
+    padding: styles.$default-padding;
+    width: 100vw;
+   
+    .li__div{
+      
+      @include styles.center-elements();
+      flex-direction: column;
+      &__p{
+        @include styles.title-700();
+        color: white;
+        font-size: styles.$post-subtitle;
+      }
+    }
+
+  }
+}
+
+ 
+}

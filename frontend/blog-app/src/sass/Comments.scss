@@ -1,0 +1,45 @@
+@use './styles.scss';
+
+.comments{
+    padding: styles.$default-padding;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__h1{
+      @include styles.title-700();
+      color: styles.$default-color;
+      text-align: center;
+    }
+
+    &__div{
+      @include styles.center-elements();
+      justify-content: flex-start;
+    background-color: styles.$default-color;
+    border-radius: 1rem;
+    padding: styles.$default-padding;
+    &1{
+      display: flex;
+      gap: 1rem;
+      &__div{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        &__p1{
+          @include styles.title-700();
+          font-size: styles.$comment-font-size;
+         }
+         &__p2{
+           @include styles.title-400();
+           font-size: styles.$comment-font-size;
+           text-align: justify;
+         }
+         &1{
+           display: flex;
+           justify-content: flex-start;
+           gap: 1rem;
+         }
+      }
+    }
+    }
+}

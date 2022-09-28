@@ -1,0 +1,13 @@
+@use './styles.scss';
+
+.cadastro__div{
+  @include styles.center-elements();
+  flex-direction: column;
+  padding: styles.$default-padding;
+  gap: 1rem;
+  &__image{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+  }
+}

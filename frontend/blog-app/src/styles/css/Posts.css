@@ -1,0 +1,42 @@
+.posts__h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+.posts__div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 1rem;
+  border: 2px solid #7f97fb;
+  border-radius: 1rem;
+  gap: 1rem;
+}
+.posts__div2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.posts__div2__p {
+  font-size: 0.7rem;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+.posts__div2__h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #7f97fb;
+}
+.posts__div3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}/*# sourceMappingURL=Posts.css.map */

@@ -1,0 +1,13 @@
+.cadastro__div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+.cadastro__div__image {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}/*# sourceMappingURL=CadastroForm.css.map */

@@ -1,0 +1,29 @@
+.postContent__div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+.postContent__div__p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  text-align: justify;
+}
+.postContent__div2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.postContent__div2__p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: darkgray;
+}
+.postContent__div2__h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}/*# sourceMappingURL=PostContent.css.map */
