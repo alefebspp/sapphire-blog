@@ -9,6 +9,7 @@
 }
 
 &__div{
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
 @include styles.center-elements();
 flex-direction: column;
 padding: styles.$default-padding;

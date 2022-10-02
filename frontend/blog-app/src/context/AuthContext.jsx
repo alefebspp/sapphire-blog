@@ -5,6 +5,7 @@ export const AuthContext = createContext()
 export default function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     const user = localStorage.getItem('user')
@@ -38,10 +39,14 @@ export default function AuthContextProvider({ children }) {
   return (
     <AuthContext.Provider
       value={{
+        loading,
+        setLoading,
+        error,
+        setError,
         authenticated: !!user,
         user,
         login,
-        logout,
+        logout
       }}
     >
       {children}

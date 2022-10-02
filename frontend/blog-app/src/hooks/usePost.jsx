@@ -7,6 +7,7 @@ import {
   deleteComment,
   updateComment
 } from '../services/api'
+import { useDisclosure } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
 import { UserContext } from '../context/userContext'
@@ -25,15 +26,13 @@ export default function usePost() {
     userInfo,
     posts
   } = useContext(UserContext)
+
   const navigate = useNavigate()
+  const { onClose } = useDisclosure()
 
   const { handleGetAllFromUser } = useUser()
-  const {
-    handleCreatePostToast,
-    handleDeletePostToast,
-    handleDeleteCommentToast,
-    handleCreateCommentToast
-  } = useToastMessage()
+  const { handleToastSuccessMessage, handleToastErrorMessage } =
+    useToastMessage()
 
   const user_info = userInfo[0]
   const post = posts?.[0]
@@ -63,9 +62,15 @@ export default function usePost() {
     try {
       const response = await createPost(dados)
       handleGetAllFromUser()
-      handleCreatePostToast()
+      handleToastSuccessMessage(
+        'Post criado',
+        'Seu post foi criado com sucesso!'
+      )
     } catch (error) {
-      return console.log(error)
+      handleToastErrorMessage(
+        'Impossível criar post',
+        'Por favor, tente novamente'
+      )
     }
   }
 
@@ -74,9 +79,15 @@ export default function usePost() {
       const post = await deletePost(postId)
       handleGetUserPosts()
       handleGetAllFromUser()
-      handleDeletePostToast()
+      handleToastSuccessMessage(
+        'Post deletado',
+        'Seu post foi deletado com sucesso!'
+      )
     } catch (error) {
-      return console.log(error)
+      handleToastErrorMessage(
+        'Impossível deletar post',
+        'Por favor, tente novamente'
+      )
     }
   }
 
@@ -93,9 +104,15 @@ export default function usePost() {
     try {
       const comment = await createComment(data)
       handleGetAllFromUser()
-      handleCreateCommentToast()
+      handleToastSuccessMessage(
+        'Comentário criado',
+        'Seu comentário foi criado com sucesso!'
+      )
     } catch (error) {
-      return console.log(error)
+      handleToastErrorMessage(
+        'Impossível criar comentário',
+        'Por favor , tente novamente'
+      )
     }
   }
 
@@ -103,21 +120,38 @@ export default function usePost() {
     try {
       const comment = await deleteComment(commentId)
       handleGetAllFromUser()
-      handleDeleteCommentToast()
+      handleToastSuccessMessage(
+        'Comentário deletado',
+        'Seu comentário foi deletado com sucesso!'
+      )
       return console.log('Comentário deletado!')
     } catch (error) {
-      return console.log(error)
+      handleToastErrorMessage(
+        'Impossível apagar comentário',
+        'Por favor, tente novamente'
+      )
     }
   }
 
-  // async function handleUpdateComment(commentId) {
-  //   try {
-  //     const comment = await updateComment(commentId)
-  //     return console.log('Comentário deletado!')
-  //   } catch (error) {
-  //     return console.log(error)
-  //   }
-  // }
+  async function handleUpdateComment(commentId) {
+    const newComment = { conteudo: inputCommentRef?.current.value }
+
+    try {
+      const comment = await updateComment(commentId, newComment)
+      handleGetAllFromUser()
+      handleToastSuccessMessage(
+        'Comentário atualizado',
+        'Seu comentário foi atualizado com sucesso!'
+      )
+      onClose()
+      return console.log('Comentário atualizado!')
+    } catch (error) {
+      handleToastErrorMessage(
+        'Impossível atualizar comentário',
+        'Por favor, tente novamente'
+      )
+    }
+  }
 
   return {
     handleGetUserPosts,
@@ -125,6 +159,7 @@ export default function usePost() {
     handleDeletePost,
     handleGetPost,
     handleCreateComment,
-    handleDeleteComment
+    handleDeleteComment,
+    handleUpdateComment
   }
 }

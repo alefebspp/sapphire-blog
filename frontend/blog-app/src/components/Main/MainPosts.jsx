@@ -29,7 +29,7 @@ export default function MainPosts() {
             return (
               <>
                 <Divider orientation="horizontal" />
-                <div className="mainPosts__div">
+                <div key={dados.id} className="mainPosts__div">
                   <Image
                     borderRadius="full"
                     src={info.user_image}

@@ -9,6 +9,21 @@ module.exports = {
     return res.json(user)
   },
 
+  async findByUsername(req, res) {
+    const { username } = req.params
+    try {
+      const user = await User.findAll({
+        where: {
+          username: username
+        }
+      })
+      if (!user) return res.status(400).json({ msg: 'Usuário não encontrado' })
+      return res.status(201).json(user)
+    } catch (error) {
+      return res.status(400).json(error)
+    }
+  },
+
   async findById(req, res) {
     const { id } = req.params
     const user = await User.findAll({
@@ -27,12 +42,12 @@ module.exports = {
       if (findUser) {
         res.status(400).send({ msg: 'Usuário já existe!' })
       } else {
-        const password = hashPassword(req.body.password)
+        const password = await hashPassword(req.body.password)
         const user = await User.create({ username, password })
         return res.status(200).json(user)
       }
     } catch (error) {
-      return res.status(400).json(error)
+      return res.status(400).json(`Impossível criar usuário ${error}`)
     }
 
     // }

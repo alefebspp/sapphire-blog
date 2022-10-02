@@ -26,4 +26,19 @@
 .postContent__div2__h1 {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
+}
+
+@media (min-width: 900px) {
+  .postContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "div div div1";
+  }
+  .postContent__div {
+    flex-direction: row;
+    grid-area: div;
+  }
+  .postContent__div1 {
+    grid-area: div1;
+  }
 }/*# sourceMappingURL=PostContent.css.map */

@@ -1,5 +1,3 @@
-import { IconButton } from '@chakra-ui/react'
-import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
 import { useContext, useEffect } from 'react'
 import { Image } from '@chakra-ui/react'
 import useUser from '../../hooks/useUser'
@@ -8,10 +6,11 @@ import { UserContext } from '../../context/userContext'
 import { AuthContext } from '../../context/AuthContext'
 import '../../styles/css/Comments.css'
 import DeleteButton from '../global/DeleteButton'
+import UpdateButton from '../global/UpdateButton'
 
 export default function Comments() {
   const { handleGetAllFromUser } = useUser()
-  const { handleDeleteComment } = usePost()
+  const { handleDeleteComment, handleUpdateComment } = usePost()
   const { user } = useContext(AuthContext)
   const { usersInfo, posts } = useContext(UserContext)
 
@@ -28,7 +27,7 @@ export default function Comments() {
         dados.infos.map(info =>
           dados.comments.map(comment => {
             return post.id == comment.post_reference ? (
-              <div className="comments__div">
+              <div key={comment.id} className="comments__div">
                 <div className="comments__div1">
                   <Image
                     src={info.user_image}
@@ -52,9 +51,10 @@ export default function Comments() {
                           click={handleDeleteComment}
                           param={comment.id}
                         />
-                        <IconButton
-                          size="xs"
-                          icon={<EditIcon color="green" />}
+
+                        <UpdateButton
+                          param={comment.id}
+                          click={handleUpdateComment}
                         />
                       </div>
                     ) : (

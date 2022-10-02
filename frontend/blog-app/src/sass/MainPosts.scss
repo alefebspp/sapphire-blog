@@ -11,6 +11,7 @@ margin: styles.$default-padding;
 border: 2px solid styles.$default-color;
 border-radius: 1rem;
 gap: 1rem;
+box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
 &1{
   @include styles.center-elements();
 flex-direction: column;

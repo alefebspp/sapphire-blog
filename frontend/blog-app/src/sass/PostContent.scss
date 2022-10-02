@@ -1,6 +1,8 @@
 @use './styles.scss';
 
-.postContent__div{
+.postContent{
+
+&__div{
  @include styles.center-elements();
  flex-direction: column;
  gap: 2rem;
@@ -29,4 +31,26 @@
   }
  
 
+}
+}
+
+@media (min-width: 900px){
+
+  .postContent{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+   
+  grid-template-areas: 
+  "div div div1"
+ 
+  ;
+    &__div{
+      flex-direction: row;
+      grid-area: div;
+    }
+    &__div1{
+      
+      grid-area: div1;
+    }
+  }
 }

@@ -18,6 +18,7 @@
     background-color: styles.$default-color;
     border-radius: 1rem;
     padding: styles.$default-padding;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
     &1{
       display: flex;
       gap: 1rem;

@@ -13,9 +13,9 @@ export default function ProfileInfo() {
 
   return (
     <div className="profileInfo">
-      {userInfo?.map((dados) => {
+      {userInfo?.map(dados => {
         return (
-          <div className="profileInfo__div">
+          <div key={dados.id} className="profileInfo__div">
             <h1 className="profileInfo__div__h1">Perfil:</h1>
             <Image borderRadius="full" boxSize="150px" src={dados.user_image} />
             <h1 className="profileInfo__div__h1">Nome: {dados.nome}</h1>

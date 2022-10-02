@@ -10,4 +10,35 @@
     height: 10rem;
     border-radius: 50%;
   }
+  &__label{
+    @include styles.title-400();
+  }
+  &__p{
+    text-align: center;
+    @include styles.title-400();
+  }
+  .infos{
+    border: 2px solid styles.$default-color;
+    border-radius: 1rem;
+    padding: 3rem;
+    @include styles.center-elements();
+    flex-direction: column;
+    gap: 1rem;
+  &__div1{
+    @include styles.center-elements();
+    flex-direction: column;
+    &__label{
+      @include styles.title-400();
+      color: styles.$default-color;
+    }
+  }
+  &__div2{
+    @include styles.center-elements();
+    flex-direction: column;
+    &__label{
+      @include styles.title-400();
+      color: styles.$default-color;
+    }
+  }
+}
 }

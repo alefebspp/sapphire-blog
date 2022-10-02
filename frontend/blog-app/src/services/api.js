@@ -1,7 +1,11 @@
 import axios from 'axios'
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3001'
+  baseURL: 'https://sapphire-app-backend.herokuapp.com',
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
+  }
 })
 
 export const getUsers = async () => {
@@ -31,6 +35,11 @@ export const createSession = async (username, password) => {
 export const getAllFromUser = async () => {
   const url = '/login/user/info'
 
+  return api.get(url)
+}
+
+export const getUserByUsername = async userName => {
+  const url = `/login/user/${userName}`
   return api.get(url)
 }
 

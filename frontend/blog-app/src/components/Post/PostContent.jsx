@@ -15,13 +15,13 @@ export default function PostContent() {
   }, [])
 
   return (
-    <div>
+    <div className="postContent">
       {posts?.map(post => {
         return (
           <div className="postContent__div" key={post.id}>
             {postsUserInfo?.map(info => {
               return (
-                <div className="postContent__div2">
+                <div key={info.id} className="postContent__div2">
                   <Image
                     src={info.user_image}
                     borderRadius="full"
@@ -44,8 +44,10 @@ export default function PostContent() {
           </div>
         )
       })}
-      <CreateComment />
-      <Comments />
+      <div className="postContent__div1">
+        <CreateComment />
+        <Comments />
+      </div>
     </div>
   )
 }

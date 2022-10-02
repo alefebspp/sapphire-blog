@@ -7,8 +7,10 @@ import {
   createUserInfo,
   getUserInfo,
   updateUser,
-  getAllFromUser
+  getAllFromUser,
+  getUserByUsername
 } from '../services/api'
+import useToastMessage from './useToastMessage'
 
 export default function useUser() {
   const {
@@ -23,6 +25,9 @@ export default function useUser() {
     posts
   } = useContext(UserContext)
   const { login, user, logout } = useContext(AuthContext)
+
+  const { handleToastErrorMessage, handleToastSuccessMessage } =
+    useToastMessage()
 
   const navigate = useNavigate()
 
@@ -39,13 +44,17 @@ export default function useUser() {
   async function handleCreateUser(e) {
     e.preventDefault()
     try {
-      createUser(
+      const response = await createUser(
         usernameInputRef.current?.value,
         passwordInputRef.current?.value
       )
       navigate('/')
+      handleToastSuccessMessage('Usuário criado', 'Faça login para continuar')
     } catch (error) {
-      console.log('Impossível criar usuário', error)
+      handleToastErrorMessage(
+        'Impossível criar usuário',
+        'Tente criar novamente'
+      )
     }
   }
 
@@ -60,14 +69,22 @@ export default function useUser() {
 
   async function userLogin(e) {
     e.preventDefault()
-    const response = await login(
-      usernameInputRef.current?.value,
-      passwordInputRef.current?.value
-    )
+    try {
+      const response = await login(
+        usernameInputRef.current?.value,
+        passwordInputRef.current?.value
+      )
 
-    if (user.cadastrado == 'não') return navigate('/usuario')
+      const username = await getUserByUsername(usernameInputRef.current?.value)
+      const cadastrado = username.data.map(dados => dados.cadastrado)
 
-    navigate('/main')
+      cadastrado == 'não' ? navigate('/usuario') : navigate('/main')
+    } catch (error) {
+      handleToastErrorMessage(
+        'Impossível fazer login',
+        'Username/Password incorreto(s)'
+      )
+    }
   }
 
   async function userLogout() {
@@ -96,7 +113,10 @@ export default function useUser() {
       const update = await updateUser(data, userId)
       navigate('/main')
     } catch (error) {
-      console.log('impossível atualizar informações', error)
+      handleToastErrorMessage(
+        'Impossível atualizar informações',
+        'Tente novamente'
+      )
     }
   }
 

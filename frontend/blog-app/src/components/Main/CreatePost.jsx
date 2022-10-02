@@ -19,7 +19,7 @@ export default function CreatePost() {
     <div className="createPost">
       {userInfo?.map(dados => {
         return (
-          <div className="createPost__div">
+          <div key={dados.id} className="createPost__div">
             <h1 className="createPost__h1">Olá, {dados.nome}!</h1>
             <h1 className="createPost__h1">Crie um novo post</h1>
           </div>

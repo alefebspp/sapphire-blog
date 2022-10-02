@@ -2,9 +2,10 @@ import { Input } from '@chakra-ui/react'
 import React, { forwardRef } from 'react'
 
 const InputComponent = React.forwardRef(
-  ({ texto, id, tipo, onChange, variant }, ref) => {
+  ({ texto, id, tipo, onChange, variant, accept }, ref) => {
     return (
       <Input
+        accept={accept}
         textAlign="center"
         ref={ref}
         size="sm"
