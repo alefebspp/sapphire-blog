@@ -17,6 +17,7 @@ margin: styles.$default-padding;
 border: 2px solid styles.$default-color;
 border-radius: 1rem;
 gap: 1rem;
+cursor: pointer;
 
 &2{
 @include styles.center-elements();

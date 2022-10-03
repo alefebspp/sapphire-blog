@@ -81,7 +81,8 @@ module.exports = {
     try {
       const info = await User.findAll({
         include: {
-          all: true
+          all: true,
+          separate: true
         }
       })
       return res.status(201).json(info)

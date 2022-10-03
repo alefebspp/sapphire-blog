@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import { UserContext } from '../../context/userContext'
 import useUser from '../../hooks/useUser'
 import Button from '../global/Button'
-import Input from '../global/Input'
+import InputLabel from '../global/InputLabel'
 import safira from '../../assets/safira.png'
 export default function Form(props) {
   const { usernameInputRef, passwordInputRef } = useContext(UserContext)
@@ -29,27 +29,25 @@ export default function Form(props) {
       <div className="div_form">
         <form className="form">
           <div className="form__div">
-            <label className="form__label" htmlFor="username">
-              Username
-            </label>
-            <Input
-              tipo="text"
-              id="username"
-              texto="Digite o username"
-              variant="outline"
+            <InputLabel
+              labelClass="form__label"
+              labelText="Username"
+              htmlFor="username"
+              inputType="text"
+              inputId="username"
+              inputText="Digite o username"
               ref={usernameInputRef}
             />
           </div>
 
           <div className="form__div">
-            <label className="form__label" htmlFor="password">
-              Senha
-            </label>
-            <Input
-              tipo="password"
-              id="password"
-              variant="outline"
-              texto="Digite sua senha"
+            <InputLabel
+              labelClass="form__label"
+              labelText="Senha"
+              htmlFor="password"
+              inputType="password"
+              inputId="password"
+              inputText="Digite sua senha"
               ref={passwordInputRef}
             />
           </div>

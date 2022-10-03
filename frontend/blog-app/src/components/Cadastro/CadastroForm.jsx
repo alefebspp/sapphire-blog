@@ -1,8 +1,9 @@
 import Input from '../global/Input'
+import InputLabel from '../global/InputLabel'
 import Button from '../global/Button'
 import axios from 'axios'
 import { Image } from 'cloudinary-react'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import { UserContext } from '../../context/userContext'
 import useUser from '../../hooks/useUser'
 import '../../styles/css/CadastroForm.css'
@@ -44,25 +45,25 @@ export default function CadastroForm() {
       <Button color="facebook" clique={imageUpload} text="Carregar imagem" />
       <div className="infos">
         <div className="infos__div1">
-          <label className="infos__div1__label" htmlFor="nome">
-            Nome
-          </label>
-          <Input
-            tipo="text"
+          <InputLabel
+            labelClass="infos__div1__label"
+            htmlFor="nome"
+            labelText="Nome"
+            inputType="text"
+            inputId="nome"
+            inputText="Digite seu nome"
             ref={nomeInputRef}
-            id="nome"
-            texto="Digite seu nome"
           />
         </div>
         <div className="infos__div2">
-          <label className="infos__div2__label" htmlFor="sobrenome">
-            Sobrenome
-          </label>
-          <Input
-            tipo="text"
+          <InputLabel
+            labelClass="infos__div2__label"
+            htmlFor="sobrenome"
+            labelText="Sobrenome"
+            inputType="text"
+            inputId="sobrenome"
+            inputText="Digite seu sobrenome"
             ref={sobrenomeInputRef}
-            id="sobrenome"
-            texto="Digite seu sobrenome"
           />
         </div>
       </div>

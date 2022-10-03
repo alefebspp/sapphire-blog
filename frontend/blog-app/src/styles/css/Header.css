@@ -26,4 +26,32 @@
   font-weight: 700;
   color: white;
   font-size: 0.7rem;
+}
+.header__nav__ul .li__link {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+.header__nav__ul .headerMenu__div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 899px) {
+  .li__links__div {
+    display: none;
+  }
+}
+@media (min-width: 900px) {
+  #headerMenu {
+    display: none;
+  }
+  .li__links__div {
+    display: flex;
+    gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }/*# sourceMappingURL=Header.css.map */

@@ -1,7 +1,6 @@
 require('dotenv').config()
 
 module.exports = {
-  connectionLimit: 10,
   dialect: 'mysql',
   host: 'us-cdbr-east-06.cleardb.net',
   database: 'heroku_f9da8aacf8877f1',

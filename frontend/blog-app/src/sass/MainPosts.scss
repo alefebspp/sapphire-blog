@@ -11,11 +11,12 @@ margin: styles.$default-padding;
 border: 2px solid styles.$default-color;
 border-radius: 1rem;
 gap: 1rem;
+cursor: pointer;
 box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
 &1{
   @include styles.center-elements();
 flex-direction: column;
-
+gap: 1rem;
 &__h1{
   @include styles.title-700();
     font-size: styles.$post-title;
@@ -36,6 +37,28 @@ flex-direction: column;
   @include styles.center-elements();
   gap: 1rem;
 }
+
+  }
+}
+
+@media (min-width: 900px){
+  .mainPosts{
+    &__div{
+      flex-direction: row;
+      justify-content: flex-start;
+      margin: styles.$large-devices-padding;
+      &1{
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0;
+        &__h1{
+          font-size: 3rem;
+        }
+        &__p{
+          font-size: 2rem;
+        }
+      }
+    }
 
   }
 }

@@ -17,7 +17,6 @@ import useUser from './useUser'
 
 export default function usePost() {
   const { user } = useContext(AuthContext)
-
   const {
     setPosts,
     inputTituloRef,

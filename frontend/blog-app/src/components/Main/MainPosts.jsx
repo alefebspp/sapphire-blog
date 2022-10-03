@@ -1,13 +1,10 @@
 import usePost from '../../hooks/usePost'
 import useUser from '../../hooks/useUser'
-
 import { useContext, useEffect } from 'react'
 import { UserContext } from '../../context/userContext'
 import { AuthContext } from '../../context/AuthContext'
-
 import '../../styles/css/Posts.css'
 import { Image, Divider } from '@chakra-ui/react'
-import Button from '../global/Button'
 import DeleteButton from '../global/DeleteButton'
 import '../../styles/css/MainPosts.css'
 
@@ -29,29 +26,33 @@ export default function MainPosts() {
             return (
               <>
                 <Divider orientation="horizontal" />
-                <div key={dados.id} className="mainPosts__div">
+                <div
+                  onClick={() => handleGetPost(post.id)}
+                  key={post.id}
+                  className="mainPosts__div"
+                >
                   <Image
                     borderRadius="full"
                     src={info.user_image}
-                    boxSize="50px"
+                    boxSize={{ base: '50px', md: '50px', lg: '100px' }}
                   />
                   <div className="mainPosts__div1">
                     <h1 className="mainPosts__div1__h1">{post.titulo}</h1>
                     <p className="mainPosts__div1__p">
                       Autor: {`${info.nome}` + ' ' + `${info.sobrenome}`}
                     </p>
-                  </div>
-                  <div className="mainPosts__div2">
-                    <Button
-                      clique={() => handleGetPost(post.id)}
-                      color="facebook"
-                      text="Ler"
-                    />
-                    {user.id == post.user_id ? (
-                      <DeleteButton click={handleDeletePost} param={post.id} />
-                    ) : (
-                      ''
-                    )}
+
+                    <div className="mainPosts__div2">
+                      {user.id == post.user_id ? (
+                        <DeleteButton
+                          click={handleDeletePost}
+                          param={post.id}
+                          size={{ base: 'xs', md: 'xs', lg: 'sm' }}
+                        />
+                      ) : (
+                        ''
+                      )}
+                    </div>
                   </div>
                 </div>
                 <Divider orientation="horizontal" />

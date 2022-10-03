@@ -50,6 +50,7 @@ export default function Comments() {
                           comment
                           click={handleDeleteComment}
                           param={comment.id}
+                          size={{ base: 'xs' }}
                         />
 
                         <UpdateButton

@@ -25,7 +25,7 @@ export default function PostContent() {
                   <Image
                     src={info.user_image}
                     borderRadius="full"
-                    boxSize="100px"
+                    boxSize={{ base: '100px', md: '100px', lg: '150px' }}
                   />
                   <div>
                     <h1 className="postContent__div2__h1">{post.titulo}</h1>

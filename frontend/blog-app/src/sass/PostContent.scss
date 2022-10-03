@@ -19,7 +19,7 @@
     
 &__p{
   @include styles.title-700();
-  font-size: 0.7rem;
+  font-size: styles.$post-subtitle;
   color: darkgray
   
 }
@@ -45,12 +45,30 @@
  
   ;
     &__div{
-      flex-direction: row;
+      flex-direction: column;
       grid-area: div;
+     justify-content: flex-start;
+     align-items: flex-start;
+     padding: styles.$large-devices-padding;
+
+     &__p{
+      font-size: styles.$post-large-content;
+     }
     }
     &__div1{
       
       grid-area: div1;
+    }
+    &__div2{
+      
+      &__h1{
+        font-size: styles.$post-large-title;
+        line-height: 40px;
+       
+      }
+      &__p{
+        font-size: styles.$post-large-subtitle;
+      }
     }
   }
 }

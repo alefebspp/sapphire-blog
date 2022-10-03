@@ -10,23 +10,18 @@ export default function AuthContextProvider({ children }) {
   useEffect(() => {
     const user = localStorage.getItem('user')
     const token = localStorage.getItem('token')
-
     if (user && token) {
       setUser(JSON.parse(user))
       api.defaults.headers.Authorization = `Bearer ${token}`
     }
-
     setLoading(false)
   }, [])
 
   const login = async (username, password) => {
     const response = await createSession(username, password)
-
     api.defaults.headers.Authorization = `Bearer ${response.data.token}`
-
     localStorage.setItem('token', response.data.token)
     localStorage.setItem('user', JSON.stringify(response.data.user))
-
     setUser(response.data.user)
   }
 

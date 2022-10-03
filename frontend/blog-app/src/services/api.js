@@ -1,13 +1,14 @@
 import axios from 'axios'
 
 export const api = axios.create({
-  baseURL: 'https://sapphire-app-backend.herokuapp.com',
+  baseURL: 'http://localhost:3001',
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*'
   }
 })
 
+//Chamadas à API relacionadas a usuários
 export const getUsers = async () => {
   const url = '/login/user'
 

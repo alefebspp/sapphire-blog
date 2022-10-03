@@ -15,6 +15,7 @@
   border: 2px solid #7f97fb;
   border-radius: 1rem;
   gap: 1rem;
+  cursor: pointer;
 }
 .posts__div2 {
   display: flex;

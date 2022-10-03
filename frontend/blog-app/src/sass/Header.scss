@@ -15,7 +15,7 @@
     width: 100vw;
    
     .li__div{
-      
+    
       @include styles.center-elements();
       flex-direction: column;
       &__p{
@@ -24,9 +24,33 @@
         font-size: styles.$post-subtitle;
       }
     }
-
+    .li__link{
+      color: white;
+      @include styles.title-700();
+    }
+    .headerMenu__div{
+      @include styles.center-elements();
+    }
   }
 }
 
  
+}
+
+@media (max-width: 899px){
+  .li__links__div{
+    display: none;
+  }
+}
+
+@media (min-width: 900px){
+  #headerMenu{
+    display: none;
+  }
+
+  .li__links__div{
+    display: flex;
+    gap: 1rem;
+    @include styles.center-elements();
+        }
 }

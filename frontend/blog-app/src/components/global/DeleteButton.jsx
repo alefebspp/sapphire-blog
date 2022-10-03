@@ -12,14 +12,14 @@ import { useRef } from 'react'
 import { DeleteIcon } from '@chakra-ui/icons'
 import { IconButton, Button } from '@chakra-ui/react'
 
-export default function DeleteButton({ comment, click, param }) {
+export default function DeleteButton({ comment, click, param, size }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const cancelRef = useRef()
 
   return (
     <>
       <IconButton
-        size="xs"
+        size={size}
         onClick={onOpen}
         colorScheme="red"
         icon={<DeleteIcon color="white" />}

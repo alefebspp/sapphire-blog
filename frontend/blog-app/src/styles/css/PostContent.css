@@ -35,10 +35,23 @@
     grid-template-areas: "div div div1";
   }
   .postContent__div {
-    flex-direction: row;
+    flex-direction: column;
     grid-area: div;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 3rem;
+  }
+  .postContent__div__p {
+    font-size: 1.5rem;
   }
   .postContent__div1 {
     grid-area: div1;
+  }
+  .postContent__div2__h1 {
+    font-size: 2rem;
+    line-height: 40px;
+  }
+  .postContent__div2__p {
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=PostContent.css.map */
