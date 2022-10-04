@@ -17,4 +17,4 @@
  - Criar , deletar e atualizar comentários em posts.
 
  OBSERVAÇÕES: A aplicação ainda está em construção. Portanto, caso algum error aconteça, considere o aviso.
- - Ainda não foi implementado o design para telas maiores que 900px
+ 
