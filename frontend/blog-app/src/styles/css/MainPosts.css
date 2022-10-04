@@ -1,3 +1,7 @@
+.mainPosts {
+  padding: 1rem;
+  margin: 1rem;
+}
 .mainPosts__div {
   display: flex;
   justify-content: center;
@@ -35,6 +39,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
   gap: 1rem;
 }
 
@@ -42,7 +48,7 @@
   .mainPosts__div {
     flex-direction: row;
     justify-content: flex-start;
-    margin: 3rem;
+    margin: 1rem;
   }
   .mainPosts__div1 {
     justify-content: flex-start;

@@ -34,7 +34,7 @@ export default function DeleteButton({ comment, click, param, size }) {
       >
         <AlertDialogOverlay>
           <AlertDialogContent>
-            {comment ? (
+            {comment == 'allow' ? (
               <>
                 <AlertDialogHeader fontSize="lg" fontWeight="bold">
                   Apagar comentário

@@ -1,9 +1,10 @@
 @use './styles.scss';
 
 .mainPosts{
-
+  padding: styles.$default-padding;
+  margin: styles.$default-padding;
+  
   &__div{ 
-
 @include styles.center-elements();
 flex-direction: column;
 padding: styles.$default-padding;
@@ -23,18 +24,18 @@ gap: 1rem;
     text-align: center;
     color: styles.$default-color;
 }
-
 &__p{
   font-size: styles.$post-subtitle;
   text-align: center;
   @include styles.title-700();
-
 }
 
 }
 
 &2{
   @include styles.center-elements();
+  justify-content: flex-start;
+  padding: styles.$default-padding;
   gap: 1rem;
 }
 
@@ -46,7 +47,7 @@ gap: 1rem;
     &__div{
       flex-direction: row;
       justify-content: flex-start;
-      margin: styles.$large-devices-padding;
+      margin: styles.$default-padding;
       &1{
         justify-content: flex-start;
         align-items: flex-start;

@@ -7,6 +7,7 @@ import { AuthContext } from '../../context/AuthContext'
 import '../../styles/css/Comments.css'
 import DeleteButton from '../global/DeleteButton'
 import UpdateButton from '../global/UpdateButton'
+import PostButtons from '../global/PostButtons'
 
 export default function Comments() {
   const { handleGetAllFromUser } = useUser()
@@ -45,19 +46,14 @@ export default function Comments() {
                     </div>
 
                     {comment.user_id == user.id ? (
-                      <div className="comments__div1__div1">
-                        <DeleteButton
-                          comment
-                          click={handleDeleteComment}
-                          param={comment.id}
-                          size={{ base: 'xs' }}
-                        />
-
-                        <UpdateButton
-                          param={comment.id}
-                          click={handleUpdateComment}
-                        />
-                      </div>
+                      <PostButtons
+                        divClassName="comments__div1__div1"
+                        commentButtons="allow"
+                        deleteOnclik={handleDeleteComment}
+                        deleteParam={comment.id}
+                        updateOnclick={handleUpdateComment}
+                        updateParam={comment.id}
+                      />
                     ) : (
                       ''
                     )}

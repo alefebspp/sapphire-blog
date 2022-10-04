@@ -1,13 +1,12 @@
 import { UserContext } from '../../context/userContext'
 import { useContext, useEffect } from 'react'
-import { Image } from '@chakra-ui/react'
 import '../../styles/css/PostContent.css'
 import useUser from '../../hooks/useUser'
 import Comments from './Comments'
 import CreateComment from './CreateComment'
-
+import PostMainContent from '../global/PostMainContent'
 export default function PostContent() {
-  const { posts, postsUserInfo, usersInfo } = useContext(UserContext)
+  const { posts, postsUserInfo } = useContext(UserContext)
   const { handleGetPostUserInfo } = useUser()
 
   useEffect(() => {
@@ -21,25 +20,20 @@ export default function PostContent() {
           <div className="postContent__div" key={post.id}>
             {postsUserInfo?.map(info => {
               return (
-                <div key={info.id} className="postContent__div2">
-                  <Image
-                    src={info.user_image}
-                    borderRadius="full"
-                    boxSize={{ base: '100px', md: '100px', lg: '150px' }}
-                  />
-                  <div>
-                    <h1 className="postContent__div2__h1">{post.titulo}</h1>
-                    <p className="postContent__div2__p">
-                      Autor(a): {`${info.nome}` + ' ' + `${info.sobrenome}`}
-                    </p>
-                    <p className="postContent__div2__p">
-                      Criado em: {post.created_at}
-                    </p>
-                  </div>
-                </div>
+                <PostMainContent
+                  firstDivKey={info.id}
+                  firstDivClassName="postContent__div2"
+                  imageSrc={info.user_image}
+                  h1ClassName="postContent__div2__h1"
+                  h1Content={post.titulo}
+                  paragraphClassName="postContent__div2__p"
+                  authorFirstName={info.nome}
+                  authorSecondName={info.sobrenome}
+                  extraParagraph
+                  postCreatedAt={post.created_at}
+                />
               )
             })}
-
             <p className="postContent__div__p">{post.conteudo}</p>
           </div>
         )

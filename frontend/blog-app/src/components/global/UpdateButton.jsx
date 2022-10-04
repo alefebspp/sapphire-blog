@@ -18,7 +18,7 @@ import { useRef } from 'react'
 import { useContext } from 'react'
 import { UserContext } from '../../context/userContext'
 
-export default function UpdateButton({ click, param }) {
+export default function UpdateButton({ click, param, size }) {
   const { inputCommentRef } = useContext(UserContext)
 
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -28,8 +28,9 @@ export default function UpdateButton({ click, param }) {
     <>
       <IconButton
         onClick={onOpen}
-        size="xs"
-        icon={<EditIcon color="green" />}
+        colorScheme="green"
+        size={size}
+        icon={<EditIcon color="white" />}
       />
 
       <Modal

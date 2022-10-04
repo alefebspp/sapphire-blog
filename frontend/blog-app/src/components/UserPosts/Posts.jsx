@@ -3,14 +3,18 @@ import { useContext, useEffect } from 'react'
 import { UserContext } from '../../context/userContext'
 import '../../styles/css/Posts.css'
 import { DeleteIcon } from '@chakra-ui/icons'
-import { Image, IconButton } from '@chakra-ui/react'
+import { IconButton } from '@chakra-ui/react'
+import PostMainContent from '../global/PostMainContent'
+import PostButtons from '../global/PostButtons'
 
 export default function Posts() {
   const { handleGetUserPosts, handleDeletePost, handleGetPost } = usePost()
   const { posts, userInfo } = useContext(UserContext)
 
   let user = userInfo[0]
-  let userName = `${user?.nome}` + ' ' + `${user?.sobrenome}`
+  let userFirstName = `${user?.nome}`
+  let userSecondName = `${user?.sobrenome}`
+
   useEffect(() => {
     ;(async () => await handleGetUserPosts())()
   }, [])
@@ -20,26 +24,25 @@ export default function Posts() {
       <h1 className="posts__h1">Esses são os seus posts:</h1>
       {posts?.map(dados => {
         return (
-          <div
-            onClick={() => handleGetPost(dados.id)}
-            className="posts__div"
-            key={dados.id}
+          <PostMainContent
+            firstDivClassName="posts__div"
+            firstDivKey={dados.id}
+            firstDivOnClick={handleGetPost}
+            onClickParam={dados.id}
+            imageSrc={user?.user_image}
+            secondDivClassName="posts__div2"
+            h1ClassName="posts__div2__h1"
+            h1Content={dados.titulo}
+            paragraphClassName="posts__div2__p"
+            authorFirstName={userFirstName}
+            authorSecondName={userSecondName}
           >
-            <Image src={user?.user_image} borderRadius="full" boxSize="50px" />
-            <div className="posts__div2">
-              <h1 className="posts__div2__h1">{dados.titulo}</h1>
-              <p className="posts__div2__p">Autor: {userName}</p>
-            </div>
-            <div className="posts__div3">
-              <IconButton
-                onClick={() => handleDeletePost(dados.id)}
-                size="xs"
-                colorScheme="red"
-                aria-label="Apagar"
-                icon={<DeleteIcon />}
-              />
-            </div>
-          </div>
+            <PostButtons
+              divClassName="posts__div3"
+              deleteOnclik={handleDeletePost}
+              deleteParam={dados.id}
+            />
+          </PostMainContent>
         )
       })}
     </div>
