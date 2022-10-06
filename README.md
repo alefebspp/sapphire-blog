@@ -1,5 +1,7 @@
 # Sapphire-blog
- Essa é uma aplicação que busca imitar uma espécie de blog. As seguintes tecnologias foram implementadas: 
+ Acesse a aplicação: https://imaginative-croissant-00a3f4.netlify.app/
+
+Essa é uma aplicação que busca imitar uma espécie de blog. As seguintes tecnologias foram implementadas: 
  
  - Nodejs : escolhido para fazer o back-end. Foi utilizado Express como framework e Sequelize como ORM. Para autenticação foi utilizado JWT.
  - React : utilizado para fazer o front-end. Além do React , utilizei o ChakraUI como UI.
