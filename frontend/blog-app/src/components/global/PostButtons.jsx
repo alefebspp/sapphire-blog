@@ -7,7 +7,13 @@ export default function PostButtons({
   deleteParam,
   updateOnclick,
   updateParam,
-  commentButtons
+  commentButtons,
+  header,
+  label,
+  titleLabel,
+  titleValue,
+  contentValue,
+  updatePost
 }) {
   return (
     <div className={divClassName}>
@@ -23,6 +29,12 @@ export default function PostButtons({
       />
 
       <UpdateButton
+        titleValue={titleValue}
+        contentValue={contentValue}
+        updatePost={updatePost == 'allow' ? 'allow' : ''}
+        header={header}
+        titleLabel={titleLabel}
+        label={label}
         click={updateOnclick}
         param={updateParam}
         size={

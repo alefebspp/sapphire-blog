@@ -35,14 +35,6 @@
   font-family: "Roboto", sans-serif;
   font-weight: 700;
 }
-.mainPosts__div2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 1rem;
-  gap: 1rem;
-}
 
 @media (min-width: 900px) {
   .mainPosts__div {

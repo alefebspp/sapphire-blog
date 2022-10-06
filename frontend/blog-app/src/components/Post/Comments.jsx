@@ -47,6 +47,8 @@ export default function Comments() {
 
                     {comment.user_id == user.id ? (
                       <PostButtons
+                        header="Atualizar comentário"
+                        label="Digite seu novo comentário"
                         divClassName="comments__div1__div1"
                         commentButtons="allow"
                         deleteOnclik={handleDeleteComment}

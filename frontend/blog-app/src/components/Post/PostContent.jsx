@@ -4,10 +4,15 @@ import '../../styles/css/PostContent.css'
 import useUser from '../../hooks/useUser'
 import Comments from './Comments'
 import CreateComment from './CreateComment'
+import PostButtons from '../global/PostButtons'
 import PostMainContent from '../global/PostMainContent'
+import usePost from '../../hooks/usePost'
+import { AuthContext } from '../../context/AuthContext'
 export default function PostContent() {
   const { posts, postsUserInfo } = useContext(UserContext)
+  const { user } = useContext(AuthContext)
   const { handleGetPostUserInfo } = useUser()
+  const { handleDeletePost, handleUpdatePost } = usePost()
 
   useEffect(() => {
     ;(async () => await handleGetPostUserInfo())()
@@ -35,6 +40,21 @@ export default function PostContent() {
               )
             })}
             <p className="postContent__div__p">{post.conteudo}</p>
+            {user.id == post.user_id ? (
+              <PostButtons
+                divClassName="postContent__div__buttons"
+                header="Atualizar post"
+                label="Digite o novo conteúdo do post"
+                titleLabel="Digite o novo título do post"
+                updatePost="allow"
+                updateOnclick={handleUpdatePost}
+                updateParam={post.id}
+                deleteOnclik={handleDeletePost}
+                deleteParam={post.id}
+              />
+            ) : (
+              ''
+            )}
           </div>
         )
       })}

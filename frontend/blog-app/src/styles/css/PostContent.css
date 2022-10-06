@@ -11,6 +11,11 @@
   font-weight: 400;
   text-align: justify;
 }
+.postContent__div__buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
 .postContent__div2 {
   display: flex;
   justify-content: center;

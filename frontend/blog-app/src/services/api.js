@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'https://sapphire-app-backend.herokuapp.com',
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*'
@@ -67,6 +67,11 @@ export const createPost = async dados => {
 export const deletePost = async postId => {
   const url = `/posts/delete/${postId}`
   return api.delete(url)
+}
+
+export const updatePost = async (data, postId) => {
+  const url = `/posts/update/${postId}`
+  return api.patch(url, data)
 }
 //Chamadas à API relacionadas às informações do usuário
 

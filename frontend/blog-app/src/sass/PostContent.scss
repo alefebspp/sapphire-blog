@@ -13,6 +13,13 @@
   text-align: justify
 }
 
+&__buttons{
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  
+}
+
   &2{
     @include styles.center-elements();
     gap: 2rem;

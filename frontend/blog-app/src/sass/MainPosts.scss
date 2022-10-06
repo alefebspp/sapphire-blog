@@ -32,12 +32,7 @@ gap: 1rem;
 
 }
 
-&2{
-  @include styles.center-elements();
-  justify-content: flex-start;
-  padding: styles.$default-padding;
-  gap: 1rem;
-}
+
 
   }
 }

@@ -15,9 +15,13 @@ export default function UserContextProvider({ children }) {
   const [userInfo, setUserInfo] = useState([])
   const [usersInfo, setUsersInfo] = useState([])
   const inputCommentRef = useRef()
+  const inputNewTitlePostRef = useRef()
+  const inputNewContentPostRef = useRef()
   return (
     <UserContext.Provider
       value={{
+        inputNewTitlePostRef,
+        inputNewContentPostRef,
         inputCommentRef,
         usersInfo,
         setUsersInfo,

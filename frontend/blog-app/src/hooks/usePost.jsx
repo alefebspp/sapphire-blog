@@ -3,6 +3,7 @@ import {
   getPost,
   createPost,
   deletePost,
+  updatePost,
   createComment,
   deleteComment,
   updateComment
@@ -23,13 +24,15 @@ export default function usePost() {
     inputConteudoRef,
     inputCommentRef,
     userInfo,
-    posts
+    posts,
+    inputNewTitlePostRef,
+    inputNewContentPostRef
   } = useContext(UserContext)
 
   const navigate = useNavigate()
   const { onClose } = useDisclosure()
 
-  const { handleGetAllFromUser } = useUser()
+  const { handleGetAllFromUser, handleGetPostUserInfo } = useUser()
   const { handleToastSuccessMessage, handleToastErrorMessage } =
     useToastMessage()
 
@@ -76,6 +79,7 @@ export default function usePost() {
   async function handleDeletePost(postId) {
     try {
       const post = await deletePost(postId)
+      navigate('/main')
       handleGetUserPosts()
       handleGetAllFromUser()
       handleToastSuccessMessage(
@@ -90,7 +94,27 @@ export default function usePost() {
     }
   }
 
-  //Funções relacionadas a posts
+  async function handleUpdatePost(postId) {
+    const data = {
+      titulo: inputNewTitlePostRef.current.value,
+      conteudo: inputNewContentPostRef.current.value
+    }
+    try {
+      const updatedPost = await updatePost(data, postId)
+      handleGetPost(postId)
+      handleToastSuccessMessage(
+        'Post atualizado ',
+        'Seu post foi atualizado com sucesso!'
+      )
+    } catch (error) {
+      handleToastErrorMessage(
+        'Impossível atualizar post',
+        'Por favor, tente novamente'
+      )
+    }
+  }
+
+  //Funções relacionadas a comentários
 
   async function handleCreateComment() {
     const data = {
@@ -142,8 +166,6 @@ export default function usePost() {
         'Comentário atualizado',
         'Seu comentário foi atualizado com sucesso!'
       )
-      onClose()
-      return console.log('Comentário atualizado!')
     } catch (error) {
       handleToastErrorMessage(
         'Impossível atualizar comentário',
@@ -154,6 +176,7 @@ export default function usePost() {
 
   return {
     handleGetUserPosts,
+    handleUpdatePost,
     handleCreatePost,
     handleDeletePost,
     handleGetPost,

@@ -6,13 +6,11 @@ import { AuthContext } from '../../context/AuthContext'
 import '../../styles/css/Posts.css'
 import { Divider } from '@chakra-ui/react'
 import PostMainContent from '../global/PostMainContent'
-import PostButtons from '../global/PostButtons'
 import '../../styles/css/MainPosts.css'
 
 export default function MainPosts() {
-  const { handleDeletePost, handleGetPost } = usePost()
+  const { handleGetPost } = usePost()
   const { handleGetAllFromUser } = useUser()
-  const { user } = useContext(AuthContext)
   const { usersInfo } = useContext(UserContext)
 
   useEffect(() => {
@@ -39,15 +37,6 @@ export default function MainPosts() {
                   authorFirstName={info.nome}
                   authorSecondName={info.sobrenome}
                 />
-                {user.id == post.user_id ? (
-                  <PostButtons
-                    divClassName="mainPosts__div2"
-                    deleteOnclik={handleDeletePost}
-                    deleteParam={post.id}
-                  />
-                ) : (
-                  ''
-                )}
                 <Divider orientation="horizontal" />
               </>
             )
