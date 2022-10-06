@@ -55,6 +55,34 @@ module.exports = {
     }
   },
 
+  async updatePost(req, res) {
+    const { postId } = req.params
+    const { titulo, conteudo } = req.body
+    const post = await Post.findAll({
+      where: {
+        id: postId
+      }
+    })
+    try {
+      if (post) {
+        const updatedPost = await Post.update(
+          {
+            titulo: titulo,
+            conteudo: conteudo
+          },
+          {
+            where: {
+              id: postId
+            }
+          }
+        )
+        return res.status(200).json(updatedPost)
+      }
+    } catch (error) {
+      return res.status(400).json(error)
+    }
+  },
+
   async getComments(req, res) {
     const { id } = req.params
     try {
@@ -68,7 +96,7 @@ module.exports = {
       })
       return res.status(200).json(comments)
     } catch (error) {
-      return res.status(401).json(console.log(error))
+      return res.status(400).json(console.log(error))
     }
   }
 }

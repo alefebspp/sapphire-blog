@@ -17,7 +17,7 @@ export default function PostContent() {
     <div className="postContent">
       {posts?.map(post => {
         return (
-          <div className="postContent__div" key={post.id}>
+          <div className="postContent__div" key={post.user_id}>
             {postsUserInfo?.map(info => {
               return (
                 <PostMainContent
