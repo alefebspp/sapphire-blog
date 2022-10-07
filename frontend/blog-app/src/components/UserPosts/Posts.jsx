@@ -2,13 +2,10 @@ import usePost from '../../hooks/usePost'
 import { useContext, useEffect } from 'react'
 import { UserContext } from '../../context/userContext'
 import '../../styles/css/Posts.css'
-import { DeleteIcon } from '@chakra-ui/icons'
-import { IconButton } from '@chakra-ui/react'
 import PostMainContent from '../global/PostMainContent'
-import PostButtons from '../global/PostButtons'
 
 export default function Posts() {
-  const { handleGetUserPosts, handleDeletePost, handleGetPost } = usePost()
+  const { handleGetUserPosts, handleGetPost } = usePost()
   const { posts, userInfo } = useContext(UserContext)
 
   let user = userInfo[0]
@@ -36,13 +33,7 @@ export default function Posts() {
             paragraphClassName="posts__div2__p"
             authorFirstName={userFirstName}
             authorSecondName={userSecondName}
-          >
-            <PostButtons
-              divClassName="posts__div3"
-              deleteOnclik={handleDeletePost}
-              deleteParam={dados.id}
-            />
-          </PostMainContent>
+          ></PostMainContent>
         )
       })}
     </div>

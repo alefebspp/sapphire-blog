@@ -26,12 +26,16 @@ export default function CreatePost() {
         )
       })}
 
-      <Input variant="filled" ref={inputTituloRef} texto="Digite seu título" />
+      <Input
+        variant="filled"
+        ref={inputTituloRef}
+        texto="Digite seu título..."
+      />
 
       <Textarea
-        textAlign="center"
+        textAlign="left"
         ref={inputConteudoRef}
-        placeholder="Digite o conteúdo do post"
+        placeholder="Digite o conteúdo do post..."
         variant="filled"
       />
 

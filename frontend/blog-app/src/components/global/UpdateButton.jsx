@@ -60,7 +60,7 @@ export default function UpdateButton({
             {updatePost == 'allow' ? (
               <>
                 <FormControl>
-                  <FormLabel>{titleLabel}</FormLabel>
+                  <FormLabel textAlign="center">{titleLabel}</FormLabel>
                   <Input
                     value={titleValue}
                     tipo="text"
@@ -71,11 +71,11 @@ export default function UpdateButton({
                 </FormControl>
 
                 <FormControl>
-                  <FormLabel>{label}</FormLabel>
+                  <FormLabel textAlign="center">{label}</FormLabel>
 
                   <Textarea
                     value={contentValue}
-                    textAlign="center"
+                    textAlign="left"
                     variant="filled"
                     ref={inputNewContentPostRef}
                     placeholder="Digite o novo conteúdo do post"

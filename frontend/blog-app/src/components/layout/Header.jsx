@@ -21,7 +21,6 @@ export default function Header() {
           <li>
             <div className="li__div">
               <Image src={safira} boxSize="40px" />
-              <p className="li__div__p">Sapphire</p>
             </div>
           </li>
 

@@ -7,7 +7,7 @@ const InputComponent = React.forwardRef(
       <Input
         value={value}
         accept={accept}
-        textAlign="center"
+        textAlign="left"
         ref={ref}
         size="sm"
         id={id}

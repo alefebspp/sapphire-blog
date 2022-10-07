@@ -1,7 +1,3 @@
-.mainPosts {
-  padding: 1rem;
-  margin: 1rem;
-}
 .mainPosts__div {
   display: flex;
   justify-content: center;
@@ -37,6 +33,10 @@
 }
 
 @media (min-width: 900px) {
+  .mainPosts {
+    padding: 1rem;
+    margin: 1rem;
+  }
   .mainPosts__div {
     flex-direction: row;
     justify-content: flex-start;
@@ -48,9 +48,31 @@
     gap: 0;
   }
   .mainPosts__div1__h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   .mainPosts__div1__p {
-    font-size: 2rem;
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1440px) {
+  .mainPosts {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .mainPosts__div {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 1rem;
+  }
+  .mainPosts__div1 {
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .mainPosts__div1__h1 {
+    font-size: 2.5rem;
+  }
+  .mainPosts__div1__p {
+    font-size: 1.5rem;
   }
 }/*# sourceMappingURL=MainPosts.css.map */

@@ -25,7 +25,7 @@ export default function PostMainContent({
       <Image
         src={imageSrc}
         borderRadius="full"
-        boxSize={{ base: '80px', md: '100px', lg: '150px' }}
+        boxSize={{ base: '80px', md: '100px', lg: '100px', xl: '120px' }}
       />
       <div className={secondDivClassName}>
         <h1 className={h1ClassName}>{h1Content}</h1>

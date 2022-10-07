@@ -44,8 +44,8 @@ export default function PostContent() {
               <PostButtons
                 divClassName="postContent__div__buttons"
                 header="Atualizar post"
-                label="Digite o novo conteúdo do post"
-                titleLabel="Digite o novo título do post"
+                label="Conteúdo"
+                titleLabel="Título"
                 updatePost="allow"
                 updateOnclick={handleUpdatePost}
                 updateParam={post.id}

@@ -1,8 +1,7 @@
 @use './styles.scss';
 
 .mainPosts{
-  padding: styles.$default-padding;
-  margin: styles.$default-padding;
+
   
   &__div{ 
 @include styles.center-elements();
@@ -39,6 +38,8 @@ gap: 1rem;
 
 @media (min-width: 900px){
   .mainPosts{
+    padding: styles.$default-padding;
+    margin: styles.$default-padding;
     &__div{
       flex-direction: row;
       justify-content: flex-start;
@@ -48,10 +49,35 @@ gap: 1rem;
         align-items: flex-start;
         gap: 0;
         &__h1{
-          font-size: 3rem;
+          font-size: 2rem;
         }
         &__p{
-          font-size: 2rem;
+          font-size: 1rem;
+        }
+      }
+    }
+
+  }
+}
+
+@media (min-width: 1440px){
+  .mainPosts{
+    padding: styles.$default-padding;
+    margin: styles.$default-padding;
+    
+    &__div{
+      flex-direction: row;
+      justify-content: flex-start;
+      margin: styles.$default-padding;
+      &1{
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0;
+        &__h1{
+          font-size: 2.5rem;
+        }
+        &__p{
+          font-size: 1.5rem;
         }
       }
     }

@@ -44,6 +44,7 @@
 @media (min-width: 900px){
 
   .postContent{
+    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
    
@@ -52,6 +53,7 @@
  
   ;
     &__div{
+     
       flex-direction: column;
       grid-area: div;
      justify-content: flex-start;
