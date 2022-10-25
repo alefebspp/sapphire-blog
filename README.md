@@ -1,7 +1,7 @@
 # Sapphire-blog
  OBS: A aplicação não está funcionando no momento porque o plano de banco de dados gratuito na Heroku está sendo ultrapassado.Medidas estão sendo tomadas
  para colocar a aplicação no ar novamente.
- Acesse a aplicação: https://imaginative-croissant-00a3f4.netlify.app/
+ 
 
 Essa é uma aplicação que busca imitar uma espécie de blog. As seguintes tecnologias foram implementadas: 
  
