@@ -1,19 +1,24 @@
-import useUser from '../../hooks/useUser'
-import { UserContext } from '../../context/userContext'
-import { useContext, useEffect } from 'react'
-import safira from '../../assets/safira.png'
-import { Image } from '@chakra-ui/react'
-import '../../styles/css/Header.css'
-import HeaderMenu from './HeaderMenu'
-import { Link } from 'react-router-dom'
+import useUser from '../../hooks/useUser';
+import { UserContext } from '../../context/userContext';
+import { useContext, useEffect } from 'react';
+import safira from '../../assets/safira.png';
+import { Image } from '@chakra-ui/react';
+import '../../styles/css/Header.css';
+import HeaderMenu from './HeaderMenu';
+import { Link } from 'react-router-dom';
 export default function Header() {
-  const { handleGetUserInfo, userLogout } = useUser()
-  const { userInfo } = useContext(UserContext)
-  let user = userInfo[0]
+  const { handleGetUserInfo, userLogout } = useUser();
+  const { userInfo, setUserInfo } = useContext(UserContext);
 
   useEffect(() => {
-    ;(async () => await handleGetUserInfo())()
-  }, [])
+    (async () => await handleGetUserInfo())();
+    const data = localStorage.getItem('USER_INFO');
+    if (!data) localStorage.setItem('USER_INFO', JSON.stringify(userInfo));
+    if (data?.length == 2)
+      localStorage.setItem('USER_INFO', JSON.stringify(userInfo));
+    if (data) setUserInfo(JSON.parse(data));
+  }, []);
+
   return (
     <header className="header">
       <nav className="header__nav">
@@ -40,25 +45,33 @@ export default function Header() {
               <Link className="li__link" onClick={userLogout}>
                 Sair
               </Link>
-              <Image
-                src={user?.user_image}
-                borderRadius="full"
-                boxSize="50px"
-              />
+              {userInfo?.map(user => {
+                return (
+                  <Image
+                    src={user?.user_image}
+                    borderRadius="full"
+                    boxSize="50px"
+                  />
+                );
+              })}
             </div>
           </li>
           <li id="headerMenu">
             <div className="headerMenu__div">
-              <Image
-                src={user?.user_image}
-                borderRadius="full"
-                boxSize="50px"
-              />
+              {userInfo?.map(user => {
+                return (
+                  <Image
+                    src={user?.user_image}
+                    borderRadius="full"
+                    boxSize="50px"
+                  />
+                );
+              })}
               <HeaderMenu />
             </div>
           </li>
         </ul>
       </nav>
     </header>
-  )
+  );
 }

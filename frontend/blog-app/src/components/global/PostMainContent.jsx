@@ -1,4 +1,4 @@
-import { Image } from '@chakra-ui/react'
+import { Image } from '@chakra-ui/react';
 
 export default function PostMainContent({
   firstDivKey,
@@ -14,7 +14,8 @@ export default function PostMainContent({
   extraParagraph,
   firstDivOnClick,
   onClickParam,
-  children
+  children,
+  postContent
 }) {
   return (
     <div
@@ -29,6 +30,11 @@ export default function PostMainContent({
       />
       <div className={secondDivClassName}>
         <h1 className={h1ClassName}>{h1Content}</h1>
+        {postContent ? (
+          <p className={paragraphClassName}>{`${postContent}...`}</p>
+        ) : (
+          ''
+        )}
         <p className={paragraphClassName}>
           Autor(a): {`${authorFirstName}` + ' ' + `${authorSecondName}`}
         </p>
@@ -40,5 +46,5 @@ export default function PostMainContent({
       </div>
       {children}
     </div>
-  )
+  );
 }

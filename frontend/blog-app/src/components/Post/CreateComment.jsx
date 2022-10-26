@@ -1,13 +1,15 @@
-import { useContext } from 'react'
-import { UserContext } from '../../context/userContext'
-import { Textarea } from '@chakra-ui/react'
-import Button from '../global/Button'
-import usePost from '../../hooks/usePost'
-import '../../styles/css/CreateComment.css'
+import { useContext } from 'react';
+import { UserContext } from '../../context/userContext';
+import { Textarea } from '@chakra-ui/react';
+import Button from '../global/Button';
+import usePost from '../../hooks/usePost';
+import '../../styles/css/CreateComment.css';
+import { AuthContext } from '../../context/AuthContext';
 
 export default function CreateComment() {
-  const { inputCommentRef } = useContext(UserContext)
-  const { handleCreateComment } = usePost()
+  const { inputCommentRef } = useContext(UserContext);
+  const { loading } = useContext(AuthContext);
+  const { handleCreateComment } = usePost();
   return (
     <div className="createComment">
       <div className="createComment__div">
@@ -17,8 +19,13 @@ export default function CreateComment() {
           placeholder="Digite seu comentário..."
           variant="filled"
         />
-        <Button text="Comentar" clique={handleCreateComment} color="facebook" />
+        <Button
+          loading={loading}
+          text="Comentar"
+          clique={handleCreateComment}
+          color="facebook"
+        />
       </div>
     </div>
-  )
+  );
 }

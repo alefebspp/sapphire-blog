@@ -1,19 +1,24 @@
-import { useContext, useEffect } from 'react'
-import { UserContext } from '../../context/userContext'
-import usePost from '../../hooks/usePost'
-import useUser from '../../hooks/useUser'
-import Input from '../global/Input'
-import Button from '../global/Button'
-import { Textarea } from '@chakra-ui/textarea'
-import '../../styles/css/CreatePost.css'
+import { useContext, useEffect } from 'react';
+import { UserContext } from '../../context/userContext';
+import usePost from '../../hooks/usePost';
+import useUser from '../../hooks/useUser';
+import Input from '../global/Input';
+import Button from '../global/Button';
+import { Textarea } from '@chakra-ui/textarea';
+import '../../styles/css/CreatePost.css';
+import { AuthContext } from '../../context/AuthContext';
 export default function CreatePost() {
-  const { inputTituloRef, inputConteudoRef, userInfo } = useContext(UserContext)
-  const { handleCreatePost } = usePost()
-  const { handleGetUserInfo } = useUser()
+  const { inputTituloRef, inputConteudoRef, userInfo, setUserInfo } =
+    useContext(UserContext);
+  const { loading } = useContext(AuthContext);
+  const { handleCreatePost } = usePost();
+  const { handleGetUserInfo } = useUser();
 
-  useEffect(() => {
-    ;(async () => await handleGetUserInfo())()
-  }, [])
+  // useEffect(() => {
+  //   (async () => await handleGetUserInfo())();
+  //   const data = localStorage.getItem('USER_INFO');
+  //   if (data) setUserInfo(JSON.parse(data));
+  // }, []);
 
   return (
     <div className="createPost">
@@ -23,7 +28,7 @@ export default function CreatePost() {
             <h1 className="createPost__h1">Olá, {dados.nome}!</h1>
             <h1 className="createPost__h1">Crie um novo post</h1>
           </div>
-        )
+        );
       })}
 
       <Input
@@ -39,7 +44,12 @@ export default function CreatePost() {
         variant="filled"
       />
 
-      <Button color="facebook" text="Criar post" clique={handleCreatePost} />
+      <Button
+        loading={loading}
+        color="facebook"
+        text="Criar post"
+        clique={handleCreatePost}
+      />
     </div>
-  )
+  );
 }

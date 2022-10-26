@@ -1,15 +1,17 @@
-import '../../styles/css/Form.css'
-import { Link } from 'react-router-dom'
-import { Image } from '@chakra-ui/react'
-import { useContext } from 'react'
-import { UserContext } from '../../context/userContext'
-import useUser from '../../hooks/useUser'
-import Button from '../global/Button'
-import InputLabel from '../global/InputLabel'
-import safira from '../../assets/safira.png'
+import '../../styles/css/Form.css';
+import { Link } from 'react-router-dom';
+import { Image } from '@chakra-ui/react';
+import { useContext } from 'react';
+import { UserContext } from '../../context/userContext';
+import useUser from '../../hooks/useUser';
+import Button from '../global/Button';
+import InputLabel from '../global/InputLabel';
+import safira from '../../assets/safira.png';
+import { AuthContext } from '../../context/AuthContext';
 export default function Form(props) {
-  const { usernameInputRef, passwordInputRef } = useContext(UserContext)
-  const { handleCreateUser, userLogin } = useUser()
+  const { usernameInputRef, passwordInputRef } = useContext(UserContext);
+  const { loading } = useContext(AuthContext);
+  const { handleCreateUser, userLogin } = useUser();
 
   return (
     <div className="logo">
@@ -52,7 +54,12 @@ export default function Form(props) {
             />
           </div>
           {props.login ? (
-            <Button color="facebook" text="Login" clique={userLogin} />
+            <Button
+              loading={loading}
+              color="facebook"
+              text="Login"
+              clique={userLogin}
+            />
           ) : (
             <Button
               color="facebook"
@@ -74,5 +81,5 @@ export default function Form(props) {
         ''
       )}
     </div>
-  )
+  );
 }

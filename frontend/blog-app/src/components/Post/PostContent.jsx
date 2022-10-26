@@ -1,22 +1,25 @@
-import { UserContext } from '../../context/userContext'
-import { useContext, useEffect } from 'react'
-import '../../styles/css/PostContent.css'
-import useUser from '../../hooks/useUser'
-import Comments from './Comments'
-import CreateComment from './CreateComment'
-import PostButtons from '../global/PostButtons'
-import PostMainContent from '../global/PostMainContent'
-import usePost from '../../hooks/usePost'
-import { AuthContext } from '../../context/AuthContext'
+import { UserContext } from '../../context/userContext';
+import { useContext, useEffect } from 'react';
+import '../../styles/css/PostContent.css';
+import useUser from '../../hooks/useUser';
+import Comments from './Comments';
+import CreateComment from './CreateComment';
+import PostButtons from '../global/PostButtons';
+import PostMainContent from '../global/PostMainContent';
+import usePost from '../../hooks/usePost';
+import { AuthContext } from '../../context/AuthContext';
 export default function PostContent() {
-  const { posts, postsUserInfo } = useContext(UserContext)
-  const { user } = useContext(AuthContext)
-  const { handleGetPostUserInfo } = useUser()
-  const { handleDeletePost, handleUpdatePost } = usePost()
+  const { posts, postsUserInfo, setPosts, setPostsUserInfo } =
+    useContext(UserContext);
+  const { user, loading } = useContext(AuthContext);
+  const { handleGetPostUserInfo } = useUser();
+  const { handleDeletePost, handleUpdatePost } = usePost();
 
   useEffect(() => {
-    ;(async () => await handleGetPostUserInfo())()
-  }, [])
+    (async () => await handleGetPostUserInfo())();
+    const data = localStorage.getItem('USER_POST');
+    setPosts(JSON.parse(data));
+  }, []);
 
   return (
     <div className="postContent">
@@ -37,7 +40,7 @@ export default function PostContent() {
                   extraParagraph
                   postCreatedAt={post.created_at}
                 />
-              )
+              );
             })}
             <p className="postContent__div__p">{post.conteudo}</p>
             {user.id == post.user_id ? (
@@ -56,12 +59,12 @@ export default function PostContent() {
               ''
             )}
           </div>
-        )
+        );
       })}
       <div className="postContent__div1">
         <CreateComment />
         <Comments />
       </div>
     </div>
-  )
+  );
 }

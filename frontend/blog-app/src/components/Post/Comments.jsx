@@ -1,25 +1,28 @@
-import { useContext, useEffect } from 'react'
-import { Image } from '@chakra-ui/react'
-import useUser from '../../hooks/useUser'
-import usePost from '../../hooks/usePost'
-import { UserContext } from '../../context/userContext'
-import { AuthContext } from '../../context/AuthContext'
-import '../../styles/css/Comments.css'
-import DeleteButton from '../global/DeleteButton'
-import UpdateButton from '../global/UpdateButton'
-import PostButtons from '../global/PostButtons'
+import { useContext, useEffect } from 'react';
+import { Image } from '@chakra-ui/react';
+import useUser from '../../hooks/useUser';
+import usePost from '../../hooks/usePost';
+import { UserContext } from '../../context/userContext';
+import { AuthContext } from '../../context/AuthContext';
+import '../../styles/css/Comments.css';
+import DeleteButton from '../global/DeleteButton';
+import UpdateButton from '../global/UpdateButton';
+import PostButtons from '../global/PostButtons';
 
 export default function Comments() {
-  const { handleGetAllFromUser } = useUser()
-  const { handleDeleteComment, handleUpdateComment } = usePost()
-  const { user } = useContext(AuthContext)
-  const { usersInfo, posts } = useContext(UserContext)
+  const { handleGetAllFromUser } = useUser();
+  const { handleDeleteComment, handleUpdateComment } = usePost();
+  const { user } = useContext(AuthContext);
+  const { usersInfo, posts, setPosts } = useContext(UserContext);
 
   useEffect(() => {
-    ;(async () => await handleGetAllFromUser())()
-  }, [])
-
-  const post = posts[0]
+    (async () => await handleGetAllFromUser())();
+    const data = localStorage.getItem('USER_POST');
+    if (!data) localStorage.setItem('USER_POST', JSON.stringify(posts));
+    if (data?.length == 2)
+      localStorage.setItem('USER_POST', JSON.stringify(posts));
+    if (data) setPosts(JSON.parse(data));
+  }, []);
 
   return (
     <div className="comments">
@@ -27,7 +30,7 @@ export default function Comments() {
       {usersInfo?.map(dados =>
         dados.infos.map(info =>
           dados.comments.map(comment => {
-            return post.id == comment.post_reference ? (
+            return posts.map(post => post.id) == comment.post_reference ? (
               <div key={comment.id} className="comments__div">
                 <div className="comments__div1">
                   <Image
@@ -64,10 +67,10 @@ export default function Comments() {
               </div>
             ) : (
               ''
-            )
+            );
           })
         )
       )}
     </div>
-  )
+  );
 }

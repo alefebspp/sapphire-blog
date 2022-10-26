@@ -1,5 +1,5 @@
-import DeleteButton from './DeleteButton'
-import UpdateButton from './UpdateButton'
+import DeleteButton from './DeleteButton';
+import UpdateButton from './UpdateButton';
 
 export default function PostButtons({
   divClassName,
@@ -13,7 +13,8 @@ export default function PostButtons({
   titleLabel,
   titleValue,
   contentValue,
-  updatePost
+  updatePost,
+  loading
 }) {
   return (
     <div className={divClassName}>
@@ -44,5 +45,5 @@ export default function PostButtons({
         }
       />
     </div>
-  )
+  );
 }

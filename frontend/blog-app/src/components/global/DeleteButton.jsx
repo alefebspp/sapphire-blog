@@ -6,15 +6,15 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   useDisclosure
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
-import { useRef } from 'react'
-import { DeleteIcon } from '@chakra-ui/icons'
-import { IconButton, Button } from '@chakra-ui/react'
+import { useRef } from 'react';
+import { DeleteIcon } from '@chakra-ui/icons';
+import { IconButton, Button } from '@chakra-ui/react';
 
-export default function DeleteButton({ comment, click, param, size }) {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const cancelRef = useRef()
+export default function DeleteButton({ comment, click, param, size, loading }) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = useRef();
 
   return (
     <>
@@ -58,6 +58,7 @@ export default function DeleteButton({ comment, click, param, size }) {
               <Button ref={cancelRef} onClick={onClose}>
                 Não
               </Button>
+
               <Button colorScheme="red" onClick={() => click(param)} ml={3}>
                 Sim
               </Button>
@@ -66,5 +67,5 @@ export default function DeleteButton({ comment, click, param, size }) {
         </AlertDialogOverlay>
       </AlertDialog>
     </>
-  )
+  );
 }

@@ -1,13 +1,13 @@
-require('dotenv').config()
+require('dotenv').config();
 
 module.exports = {
   dialect: 'mysql',
-  host: 'us-cdbr-east-06.cleardb.net',
-  database: 'heroku_f9da8aacf8877f1',
-  username: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
+  host: 'localhost',
+  database: 'pdoposts',
+  username: 'root',
+  password: '37530167',
   define: {
     timestamps: false,
     underscored: true
   }
-}
+};
